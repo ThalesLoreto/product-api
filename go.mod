@@ -3,6 +3,7 @@ module github.com/ThalesLoreto/product-api
 go 1.22.1
 
 require (
+	github.com/go-chi/chi/v5 v5.0.7
 	github.com/go-chi/jwtauth/v5 v5.3.1
 	github.com/google/uuid v1.4.0
 	github.com/spf13/viper v1.19.0
