@@ -44,7 +44,7 @@ func (uh *UserHandler) Login(w http.ResponseWriter, r *http.Request) {
 	}
 	_, tokenString, _ := uh.Jwt.Encode(map[string]interface{}{
 		"sub": u.ID.String(),
-		"exp": jwtauth.ExpireIn(time.Duration(uh.JwtExpiresIn)),
+		"exp": jwtauth.ExpireIn(time.Duration(uh.JwtExpiresIn) * time.Minute),
 	})
 	accessToken := struct {
 		AccessToken string `json:"access_token"`
