@@ -38,11 +38,12 @@ func (p *Product) FindByID(id string) (*entity.Product, error) {
 	return &product, nil
 }
 
-func (p *Product) Update(product *entity.Product) error {
-	if _, err := p.FindByID(product.ID.String()); err != nil {
+func (p *Product) Update(id string, fields interface{}) error {
+	product, err := p.FindByID(id)
+	if err != nil {
 		return err
 	}
-	return p.DB.Save(product).Error
+	return p.DB.Model(&product).Updates(fields).Error
 }
 
 func (p *Product) Delete(id string) error {
