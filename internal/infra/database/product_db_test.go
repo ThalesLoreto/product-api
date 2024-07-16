@@ -89,7 +89,7 @@ func TestProduct_Update(t *testing.T) {
 	db.Create(&product)
 	product.Name = "Product 2"
 	productDB := NewProduct(db)
-	err = productDB.Update(product)
+	err = productDB.Update(product.ID.String(), product)
 	assert.NoError(t, err)
 	productFound, err := productDB.FindByID(product.ID.String())
 	assert.NoError(t, err)
