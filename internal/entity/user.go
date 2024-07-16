@@ -9,7 +9,7 @@ type User struct {
 	ID       entity.ID `json:"id"`
 	Name     string    `json:"name"`
 	Email    string    `json:"email"`
-	Password string    `json:"-"`
+	Password string    `json:"password"`
 }
 
 func NewUser(name, email, password string) (*User, error) {
